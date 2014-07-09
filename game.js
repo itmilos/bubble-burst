@@ -78,6 +78,7 @@
   
   Game.prototype.step = function() {
     this.ship.friction(.02);
+    this.checkKeys();
     this.move();
     this.draw();
     if (this.checkCollisions() === true) {
@@ -92,7 +93,6 @@
   }
   
   Game.prototype.start = function() {
-    this.bindKeyHandlers();
     this.timer = setInterval(this.step.bind(this), Game.FPS);
   }
   
@@ -115,12 +115,29 @@
     this.bullets.push(this.ship.fireBullet());
   }
   
-  Game.prototype.bindKeyHandlers = function(){
+  Game.prototype.checkKeys= function(){
     var curGame = this;
-    key('w', function() {curGame.ship.power(0, -.1)});
-    key('a', function() {curGame.ship.power(-.1, 0)});
-    key('s', function() {curGame.ship.power(0, .1)});
-    key('d', function() {curGame.ship.power(.1, 0)});
+    // key('w', function() {curGame.ship.power(0, -.1)});
+    // key('a', function() {curGame.ship.power(-.1, 0)});
+    // key('s', function() {curGame.ship.power(0, .1)});
+    // key('d', function() {curGame.ship.power(.1, 0)});
+    
+    if (key.isPressed('w')) {
+      curGame.ship.power(0, -.1);
+    }
+    
+    if (key.isPressed('a')) {
+      curGame.ship.power(-.1, 0);
+    }
+    
+    if (key.isPressed('s')) {
+      curGame.ship.power(0, .1);
+    }
+    
+    if (key.isPressed('d')) {
+      curGame.ship.power(.1, 0);
+    }
+    
     key('space', function() {
       curGame.fireBullet();
     });

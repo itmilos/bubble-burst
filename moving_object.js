@@ -12,6 +12,12 @@
   };
 
   MovingObject.prototype.move = function() {
+    if (this.x + this.radius < 0) {
+      this.x = Games.Game.DIM_X;
+    }
+    if (this.y + this.radius < 0) {
+      this.y = Games.Game.DIM_Y;
+    }
     this.x = (this.x + this.vx) % Games.Game.DIM_X;
     this.y = (this.y + this.vy) % Games.Game.DIM_Y;
   };

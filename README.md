@@ -1,8 +1,8 @@
 # Bubble Burst
 
-A game where users move around the screen and shoot at moving targets
+A game where users move around the screen to shoot at floating targets
 
-Implemented using Javascript, Canvas
+Implemented with Javascript and Canvas
 
 Commands registered through keystrokes using Keymaster.js
 

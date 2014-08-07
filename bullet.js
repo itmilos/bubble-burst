@@ -11,22 +11,10 @@
   Bullet.BULLETSPEED = 15;
   Bullet.RADIUS = 2;
   Bullet.COLOR = "red";
-  
-  // Bullet.prototype.hitAsteroids = function() {
- //    var curGame = this;
- //    var collided = false;
- //    this.asteroids.forEach(function(asteroid){
- //      if (curGame.ship.isCollidedWith(asteroid)) {
- //        collided = true;
- //      }
- //    })
- //    return collided;
- //  }
 
   Bullet.prototype.move = function() {
     this.x = (this.x + this.vx);
     this.y = (this.y + this.vy);
   };
-  
       
 })(this);

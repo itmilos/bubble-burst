@@ -6,6 +6,7 @@
     this.asteroids = [];
     this.ship = new Ships.Ship();
     this.bullets = [];
+    this.score = 0;
   };
   
   Game.DIM_X = 500;
@@ -112,39 +113,34 @@
   }
   
   Game.prototype.fireBullet = function() {
-    this.bullets.push(this.ship.fireBullet());
+    var bullet = this.ship.fireBullet(); 
+    if (bullet !== null) {
+      this.bullets.push(bullet);
+    }
   }
   
   Game.prototype.checkKeys= function(){
     var curGame = this;
-    // key('w', function() {curGame.ship.power(0, -.1)});
-    // key('a', function() {curGame.ship.power(-.1, 0)});
-    // key('s', function() {curGame.ship.power(0, .1)});
-    // key('d', function() {curGame.ship.power(.1, 0)});
     
-    if (key.isPressed('w')) {
+    if (key.isPressed('up')) {
       curGame.ship.power(0, -.1);
     }
     
-    if (key.isPressed('a')) {
+    if (key.isPressed('left')) {
       curGame.ship.power(-.1, 0);
     }
     
-    if (key.isPressed('s')) {
+    if (key.isPressed('down')) {
       curGame.ship.power(0, .1);
     }
     
-    if (key.isPressed('d')) {
+    if (key.isPressed('right')) {
       curGame.ship.power(.1, 0);
     }
     
     key('space', function() {
       curGame.fireBullet();
     });
-    // key('w+a', function() {curGame.ship.power(-.1, -.1)});
-    // key('w+d', function() {curGame.ship.power(.1, -.1)});
-    // key('s+a', function() {curGame.ship.power(-.1, .1)});
-    // key('s+d', function() {curGame.ship.power(.1, .1)});
   }
   
   Game.prototype.hitAsteroids = function(){
@@ -154,6 +150,8 @@
         if(bullet.isCollidedWith(asteroid)){
           curGame.removeAsteroid(asteroid);
           curGame.removeBullet(bullet);
+          curGame.score++;
+          $(".score").html(curGame.score);
         }
       });
     });

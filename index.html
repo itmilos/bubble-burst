@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Asteroids!</title>
-</head>
-<body>
+    <title>Bubble Burst</title>
+    <link rel="stylesheet" type="text/css" href="application.css">
     <script src="inherit.js"></script>
     <script src="keymaster.js"></script>
     <script src="game.js"></script>
@@ -11,12 +10,28 @@
     <script src="asteroid.js"></script>
     <script src="bullet.js"></script>
     <script src="ship.js"></script>
-    <canvas width="500" height="500" style="border:1px solid #000000;"></canvas>
+</head>
+<body>
+    <h1>Bubble Burst</h1>
+    <p>You've popped <strong><span class="score">0</span></strong> bubbles!</p>
+    <canvas width="500" height="500"></canvas>
+    <div class="instructions">
+      <h4>Instructions:</h4>
+      <p>You are the small blue circle</p>
+      <p>Press the <strong>spacebar</strong> to shoot in the direction you are moving
+      <p>Press <strong>left</strong>, <strong>right</strong>, <strong>up</strong>, and <strong>down</strong> keys to change direction</p>
+      <p>If you touch one of the balloons, you <strong>lose</strong></p>
+      <p>Pop all 10 balloons to <strong>win</strong></p>
+      <p>You can only shoot when you are moving</p>
+      <p>Refresh the page to start over</p>
+    </div>
     <script>
         var canvas = document.getElementsByTagName("canvas")[0];
         var game = new Games.Game(canvas);
         game.addAsteroids(10);
         game.start();
     </script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </div>
 </body> 
 </html>

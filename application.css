@@ -1,0 +1,19 @@
+body {
+  font-family: helvetica;
+  text-align: center;
+}
+
+canvas {
+  border: 1px solid #000000;
+  text-align: center;
+  display: inline-block;
+  margin-left: 200px;
+}
+
+.instructions {
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin-left: 20px;
+}

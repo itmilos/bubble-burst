@@ -3,7 +3,7 @@
 
   var Ship = Ships.Ship = function(){
     MovingObjects.MovingObject.call(this, Games.Game.DIM_X / 2,
-      Games.Game.DIM_Y / 2, 0, 0, Ship.RADIUS, Ship.COLOR);
+      Games.Game.DIM_Y /2, 0, 0, Ship.RADIUS, Ship.COLOR);
   };
   
   Ship.inherits(MovingObjects.MovingObject);
@@ -43,6 +43,7 @@
         normvy * Bullets.Bullet.BULLETSPEED);
       return bullet;
     }
+    return null;
   }
     
 })(this);

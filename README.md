@@ -1,4 +1,4 @@
-==Bubble Burst
+# Bubble Burst
 
 A game where users move around the screen and shoot at moving targets
 
